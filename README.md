@@ -6,7 +6,7 @@ The license model is a BSD Open Source License. This is a non-viral license, onl
 
 ##Features
 
-This is a hooker for macOS (Mac OS X) IOKit class objects. This hooker ia a part of a bigger project MacOSX-Kernel-Filter https://github.com/slavaim/MacOSX-Kernel-Filter. I extracted the hooker related code and removed unrelated dependencies to make it easy to incorporate the hooker for new projects. The repository contains an IOKit module project that is provided only for your convinience so you can check that files can be compiled as a standalone project in your build environment.
+This is a hooker for macOS (Mac OS X) IOKit class objects. This hooker is a part of a bigger project MacOSX-Kernel-Filter https://github.com/slavaim/MacOSX-Kernel-Filter. I extracted the hooker related code and removed unrelated dependencies to make it easy to incorporate the hooker for new projects. The repository contains an IOKit module project that is provided only for your convinience so you can check that files can be compiled as a standalone project in your build environment.
 
 The src directory contains the hooker code. The example directory contains an example of hooker implementation for IOUserClient derived objects.
 
