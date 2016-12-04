@@ -65,7 +65,7 @@ The project contains an example of hooker usage for IOUserClient objects.
 
 For particular details look at HookExample function that initiates hooking for IOUserClient derived objects.
 
-Below is a brief description for IOUserClient hook and DldIOKitHookEngine. DldIOKitHookEngine is a class that registeres and applies hooks by traversing the IOService plane. You can extend this example by adding dynamic hooking for newly created objects, see MacOSX-Kernel-Filter for details.
+Below is a brief description for IOUserClient hook and DldIOKitHookEngine. DldIOKitHookEngine is a class that registers and applies hooks by traversing the IOService plane. You can extend this example by adding dynamic hooking for newly created objects, see MacOSX-Kernel-Filter for details.
 
 The hooking is performed by 
 ```
