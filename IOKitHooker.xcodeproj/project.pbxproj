@@ -1,0 +1,415 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F9C34B9E1DF4149700AF247B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9C34B9C1DF4149700AF247B /* InfoPlist.strings */; };
+		F9C34BAB1DF4169400AF247B /* DldHookerCommonClass2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9C34BA91DF4169400AF247B /* DldHookerCommonClass2.cpp */; };
+		F9C34BAC1DF4169400AF247B /* DldHookerCommonClass2.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C34BAA1DF4169400AF247B /* DldHookerCommonClass2.h */; };
+		F9C34BB01DF4171600AF247B /* DldCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C34BAD1DF4171600AF247B /* DldCommon.h */; };
+		F9C34BB11DF4171600AF247B /* DldHookerCommonClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9C34BAE1DF4171600AF247B /* DldHookerCommonClass.cpp */; };
+		F9C34BB21DF4171600AF247B /* DldHookerCommonClass.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C34BAF1DF4171600AF247B /* DldHookerCommonClass.h */; };
+		F9C34BB51DF4174D00AF247B /* DldCommonHashTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9C34BB31DF4174D00AF247B /* DldCommonHashTable.cpp */; };
+		F9C34BB61DF4174D00AF247B /* DldCommonHashTable.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C34BB41DF4174D00AF247B /* DldCommonHashTable.h */; };
+		F9C34BBB1DF4179800AF247B /* DldIORegistryEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9C34BB71DF4179800AF247B /* DldIORegistryEntry.cpp */; };
+		F9C34BBC1DF4179800AF247B /* DldIORegistryEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C34BB81DF4179800AF247B /* DldIORegistryEntry.h */; };
+		F9C34BC91DF419F300AF247B /* DldSupportingCode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9C34BC61DF419F300AF247B /* DldSupportingCode.cpp */; };
+		F9C34BCA1DF419F300AF247B /* DldSupportingCode.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C34BC71DF419F300AF247B /* DldSupportingCode.h */; };
+		F9C34BCD1DF41A1700AF247B /* DldUndocumentedQuirks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9C34BCB1DF41A1700AF247B /* DldUndocumentedQuirks.cpp */; };
+		F9C34BCE1DF41A1700AF247B /* DldUndocumentedQuirks.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C34BCC1DF41A1700AF247B /* DldUndocumentedQuirks.h */; };
+		F9C34BD11DF41A4E00AF247B /* DldVmPmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9C34BCF1DF41A4E00AF247B /* DldVmPmap.cpp */; };
+		F9C34BD21DF41A4E00AF247B /* DldVmPmap.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C34BD01DF41A4E00AF247B /* DldVmPmap.h */; };
+		F9C34BDD1DF424E900AF247B /* IOUserClientDldHook.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9C34BDC1DF424E900AF247B /* IOUserClientDldHook.cpp */; };
+		F9C34BDF1DF424F600AF247B /* IOUserClientDldHook.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C34BDE1DF424F600AF247B /* IOUserClientDldHook.h */; };
+		F9C34BE21DF4266300AF247B /* DldIOKitHookEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9C34BE01DF4266300AF247B /* DldIOKitHookEngine.cpp */; };
+		F9C34BE31DF4266300AF247B /* DldIOKitHookEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C34BE11DF4266300AF247B /* DldIOKitHookEngine.h */; };
+		F9C34BE61DF428E500AF247B /* DldIOKitHookDictionaryEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9C34BE41DF428E500AF247B /* DldIOKitHookDictionaryEntry.cpp */; };
+		F9C34BE71DF428E500AF247B /* DldIOKitHookDictionaryEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C34BE51DF428E500AF247B /* DldIOKitHookDictionaryEntry.h */; };
+		F9C34BEA1DF42DFA00AF247B /* HookExample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9C34BE81DF42DFA00AF247B /* HookExample.cpp */; };
+		F9C34BEB1DF42DFA00AF247B /* HookExample.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C34BE91DF42DFA00AF247B /* HookExample.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F9C34B941DF4149700AF247B /* IOKitHooker.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOKitHooker.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9C34B981DF4149700AF247B /* Kernel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kernel.framework; path = System/Library/Frameworks/Kernel.framework; sourceTree = SDKROOT; };
+		F9C34B9B1DF4149700AF247B /* IOKitHooker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IOKitHooker-Info.plist"; sourceTree = "<group>"; };
+		F9C34B9D1DF4149700AF247B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F9C34BA21DF4149700AF247B /* IOKitHooker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IOKitHooker-Prefix.pch"; sourceTree = "<group>"; };
+		F9C34BA91DF4169400AF247B /* DldHookerCommonClass2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DldHookerCommonClass2.cpp; sourceTree = "<group>"; };
+		F9C34BAA1DF4169400AF247B /* DldHookerCommonClass2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DldHookerCommonClass2.h; sourceTree = "<group>"; };
+		F9C34BAD1DF4171600AF247B /* DldCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DldCommon.h; sourceTree = "<group>"; };
+		F9C34BAE1DF4171600AF247B /* DldHookerCommonClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DldHookerCommonClass.cpp; sourceTree = "<group>"; };
+		F9C34BAF1DF4171600AF247B /* DldHookerCommonClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DldHookerCommonClass.h; sourceTree = "<group>"; };
+		F9C34BB31DF4174D00AF247B /* DldCommonHashTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DldCommonHashTable.cpp; sourceTree = "<group>"; };
+		F9C34BB41DF4174D00AF247B /* DldCommonHashTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DldCommonHashTable.h; sourceTree = "<group>"; };
+		F9C34BB71DF4179800AF247B /* DldIORegistryEntry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DldIORegistryEntry.cpp; sourceTree = "<group>"; };
+		F9C34BB81DF4179800AF247B /* DldIORegistryEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DldIORegistryEntry.h; sourceTree = "<group>"; };
+		F9C34BC61DF419F300AF247B /* DldSupportingCode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DldSupportingCode.cpp; sourceTree = "<group>"; };
+		F9C34BC71DF419F300AF247B /* DldSupportingCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DldSupportingCode.h; sourceTree = "<group>"; };
+		F9C34BCB1DF41A1700AF247B /* DldUndocumentedQuirks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DldUndocumentedQuirks.cpp; sourceTree = "<group>"; };
+		F9C34BCC1DF41A1700AF247B /* DldUndocumentedQuirks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DldUndocumentedQuirks.h; sourceTree = "<group>"; };
+		F9C34BCF1DF41A4E00AF247B /* DldVmPmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DldVmPmap.cpp; sourceTree = "<group>"; };
+		F9C34BD01DF41A4E00AF247B /* DldVmPmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DldVmPmap.h; sourceTree = "<group>"; };
+		F9C34BDC1DF424E900AF247B /* IOUserClientDldHook.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IOUserClientDldHook.cpp; sourceTree = "<group>"; };
+		F9C34BDE1DF424F600AF247B /* IOUserClientDldHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOUserClientDldHook.h; sourceTree = "<group>"; };
+		F9C34BE01DF4266300AF247B /* DldIOKitHookEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DldIOKitHookEngine.cpp; sourceTree = "<group>"; };
+		F9C34BE11DF4266300AF247B /* DldIOKitHookEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DldIOKitHookEngine.h; sourceTree = "<group>"; };
+		F9C34BE41DF428E500AF247B /* DldIOKitHookDictionaryEntry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DldIOKitHookDictionaryEntry.cpp; sourceTree = "<group>"; };
+		F9C34BE51DF428E500AF247B /* DldIOKitHookDictionaryEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DldIOKitHookDictionaryEntry.h; sourceTree = "<group>"; };
+		F9C34BE81DF42DFA00AF247B /* HookExample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HookExample.cpp; sourceTree = "<group>"; };
+		F9C34BE91DF42DFA00AF247B /* HookExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HookExample.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F9C34B8F1DF4149700AF247B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F9C34B891DF4149700AF247B = {
+			isa = PBXGroup;
+			children = (
+				F9C34B991DF4149700AF247B /* IOKitHooker */,
+				F9C34B961DF4149700AF247B /* Frameworks */,
+				F9C34B951DF4149700AF247B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F9C34B951DF4149700AF247B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F9C34B941DF4149700AF247B /* IOKitHooker.kext */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F9C34B961DF4149700AF247B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F9C34B971DF4149700AF247B /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F9C34B971DF4149700AF247B /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F9C34B981DF4149700AF247B /* Kernel.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		F9C34B991DF4149700AF247B /* IOKitHooker */ = {
+			isa = PBXGroup;
+			children = (
+				F9C34BD71DF4246100AF247B /* example */,
+				F9C34BA81DF4169400AF247B /* src */,
+				F9C34B9A1DF4149700AF247B /* Supporting Files */,
+			);
+			path = IOKitHooker;
+			sourceTree = "<group>";
+		};
+		F9C34B9A1DF4149700AF247B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F9C34B9B1DF4149700AF247B /* IOKitHooker-Info.plist */,
+				F9C34B9C1DF4149700AF247B /* InfoPlist.strings */,
+				F9C34BA21DF4149700AF247B /* IOKitHooker-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F9C34BA81DF4169400AF247B /* src */ = {
+			isa = PBXGroup;
+			children = (
+				F9C34BCF1DF41A4E00AF247B /* DldVmPmap.cpp */,
+				F9C34BD01DF41A4E00AF247B /* DldVmPmap.h */,
+				F9C34BCB1DF41A1700AF247B /* DldUndocumentedQuirks.cpp */,
+				F9C34BCC1DF41A1700AF247B /* DldUndocumentedQuirks.h */,
+				F9C34BC61DF419F300AF247B /* DldSupportingCode.cpp */,
+				F9C34BC71DF419F300AF247B /* DldSupportingCode.h */,
+				F9C34BB71DF4179800AF247B /* DldIORegistryEntry.cpp */,
+				F9C34BB81DF4179800AF247B /* DldIORegistryEntry.h */,
+				F9C34BB31DF4174D00AF247B /* DldCommonHashTable.cpp */,
+				F9C34BB41DF4174D00AF247B /* DldCommonHashTable.h */,
+				F9C34BAD1DF4171600AF247B /* DldCommon.h */,
+				F9C34BAE1DF4171600AF247B /* DldHookerCommonClass.cpp */,
+				F9C34BAF1DF4171600AF247B /* DldHookerCommonClass.h */,
+				F9C34BA91DF4169400AF247B /* DldHookerCommonClass2.cpp */,
+				F9C34BAA1DF4169400AF247B /* DldHookerCommonClass2.h */,
+			);
+			path = src;
+			sourceTree = SOURCE_ROOT;
+		};
+		F9C34BD71DF4246100AF247B /* example */ = {
+			isa = PBXGroup;
+			children = (
+				F9C34BE41DF428E500AF247B /* DldIOKitHookDictionaryEntry.cpp */,
+				F9C34BE51DF428E500AF247B /* DldIOKitHookDictionaryEntry.h */,
+				F9C34BE01DF4266300AF247B /* DldIOKitHookEngine.cpp */,
+				F9C34BE11DF4266300AF247B /* DldIOKitHookEngine.h */,
+				F9C34BDE1DF424F600AF247B /* IOUserClientDldHook.h */,
+				F9C34BDC1DF424E900AF247B /* IOUserClientDldHook.cpp */,
+				F9C34BE81DF42DFA00AF247B /* HookExample.cpp */,
+				F9C34BE91DF42DFA00AF247B /* HookExample.h */,
+			);
+			path = example;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		F9C34B901DF4149700AF247B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9C34BEB1DF42DFA00AF247B /* HookExample.h in Headers */,
+				F9C34BD21DF41A4E00AF247B /* DldVmPmap.h in Headers */,
+				F9C34BB01DF4171600AF247B /* DldCommon.h in Headers */,
+				F9C34BAC1DF4169400AF247B /* DldHookerCommonClass2.h in Headers */,
+				F9C34BDF1DF424F600AF247B /* IOUserClientDldHook.h in Headers */,
+				F9C34BB21DF4171600AF247B /* DldHookerCommonClass.h in Headers */,
+				F9C34BE31DF4266300AF247B /* DldIOKitHookEngine.h in Headers */,
+				F9C34BE71DF428E500AF247B /* DldIOKitHookDictionaryEntry.h in Headers */,
+				F9C34BCA1DF419F300AF247B /* DldSupportingCode.h in Headers */,
+				F9C34BCE1DF41A1700AF247B /* DldUndocumentedQuirks.h in Headers */,
+				F9C34BB61DF4174D00AF247B /* DldCommonHashTable.h in Headers */,
+				F9C34BBC1DF4179800AF247B /* DldIORegistryEntry.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		F9C34B931DF4149700AF247B /* IOKitHooker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9C34BA51DF4149700AF247B /* Build configuration list for PBXNativeTarget "IOKitHooker" */;
+			buildPhases = (
+				F9C34B8E1DF4149700AF247B /* Sources */,
+				F9C34B8F1DF4149700AF247B /* Frameworks */,
+				F9C34B901DF4149700AF247B /* Headers */,
+				F9C34B911DF4149700AF247B /* Resources */,
+				F9C34B921DF4149700AF247B /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IOKitHooker;
+			productName = IOKitHooker;
+			productReference = F9C34B941DF4149700AF247B /* IOKitHooker.kext */;
+			productType = "com.apple.product-type.kernel-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F9C34B8A1DF4149700AF247B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Slava-Imameev";
+			};
+			buildConfigurationList = F9C34B8D1DF4149700AF247B /* Build configuration list for PBXProject "IOKitHooker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F9C34B891DF4149700AF247B;
+			productRefGroup = F9C34B951DF4149700AF247B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F9C34B931DF4149700AF247B /* IOKitHooker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F9C34B911DF4149700AF247B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9C34B9E1DF4149700AF247B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		F9C34B921DF4149700AF247B /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F9C34B8E1DF4149700AF247B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9C34BC91DF419F300AF247B /* DldSupportingCode.cpp in Sources */,
+				F9C34BD11DF41A4E00AF247B /* DldVmPmap.cpp in Sources */,
+				F9C34BB51DF4174D00AF247B /* DldCommonHashTable.cpp in Sources */,
+				F9C34BDD1DF424E900AF247B /* IOUserClientDldHook.cpp in Sources */,
+				F9C34BE21DF4266300AF247B /* DldIOKitHookEngine.cpp in Sources */,
+				F9C34BAB1DF4169400AF247B /* DldHookerCommonClass2.cpp in Sources */,
+				F9C34BBB1DF4179800AF247B /* DldIORegistryEntry.cpp in Sources */,
+				F9C34BE61DF428E500AF247B /* DldIOKitHookDictionaryEntry.cpp in Sources */,
+				F9C34BB11DF4171600AF247B /* DldHookerCommonClass.cpp in Sources */,
+				F9C34BEA1DF42DFA00AF247B /* HookExample.cpp in Sources */,
+				F9C34BCD1DF41A1700AF247B /* DldUndocumentedQuirks.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F9C34B9C1DF4149700AF247B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F9C34B9D1DF4149700AF247B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F9C34BA31DF4149700AF247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		F9C34BA41DF4149700AF247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F9C34BA61DF4149700AF247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1.0.0d1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IOKitHooker/IOKitHooker-Prefix.pch";
+				INFOPLIST_FILE = "IOKitHooker/IOKitHooker-Info.plist";
+				MODULE_NAME = "Slava-Imameev.IOKitHooker";
+				MODULE_VERSION = 1.0.0d1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Debug;
+		};
+		F9C34BA71DF4149700AF247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1.0.0d1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IOKitHooker/IOKitHooker-Prefix.pch";
+				INFOPLIST_FILE = "IOKitHooker/IOKitHooker-Info.plist";
+				MODULE_NAME = "Slava-Imameev.IOKitHooker";
+				MODULE_VERSION = 1.0.0d1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F9C34B8D1DF4149700AF247B /* Build configuration list for PBXProject "IOKitHooker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9C34BA31DF4149700AF247B /* Debug */,
+				F9C34BA41DF4149700AF247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9C34BA51DF4149700AF247B /* Build configuration list for PBXNativeTarget "IOKitHooker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9C34BA61DF4149700AF247B /* Debug */,
+				F9C34BA71DF4149700AF247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F9C34B8A1DF4149700AF247B /* Project object */;
+}
