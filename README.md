@@ -61,6 +61,6 @@ _IOConfigThread::main at IOService.cpp:3350
 
 ##Usage
 
-The project contains an example of hooker usage for IOUserClient objects hooks in the example directory. 
+The project contains an example of hooker usage for IOUserClient objects.
 
-For a particular details look at HookExample function that initiates hooking for IOUserClient derived objects.
+For particular details look at HookExample function that initiates hooking for IOUserClient derived objects.
