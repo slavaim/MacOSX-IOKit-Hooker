@@ -64,3 +64,211 @@ _IOConfigThread::main at IOService.cpp:3350
 The project contains an example of hooker usage for IOUserClient objects.
 
 For particular details look at HookExample function that initiates hooking for IOUserClient derived objects.
+
+Below is a brief description for IOUserClient hook and DldIOKitHookEngine. DldIOKitHookEngine is a class that registeres and applies hooks by traversing the IOService plane. You can extend this example by adding dynamic hooking for newly created objects, see MacOSX-Kernel-Filter for details.
+
+The hooking is performed by 
+```
+IOReturn
+DldIOKitHookEngine::HookObject(
+    __inout OSObject* object
+    )
+```
+
+which applies a hooking function for each registered class
+
+```
+( pEntry->getHookFunction() )( object, pEntry->getHookType() );
+```
+
+The template class
+
+```
+template<DldInheritanceDepth Depth>
+class IOUserClientDldHook : public DldHookerBaseInterface
+```
+
+defines a hooker for IOUserClient derived classes up to Depth of inheritance. This template is instantiated by DldIOKitHookEngine::startHookingWithPredefinedClasses as
+
+```
+    this->DldAddHookingClassInstance< IOUserClientDldHook<DldInheritanceDepth_0>, IOUserClient >( DldHookTypeVtable );
+    this->DldAddHookingClassInstance< IOUserClientDldHook<DldInheritanceDepth_1>, IOUserClient >( DldHookTypeVtable );
+    this->DldAddHookingClassInstance< IOUserClientDldHook<DldInheritanceDepth_2>, IOUserClient >( DldHookTypeVtable );
+    this->DldAddHookingClassInstance< IOUserClientDldHook<DldInheritanceDepth_3>, IOUserClient >( DldHookTypeVtable );
+    this->DldAddHookingClassInstance< IOUserClientDldHook<DldInheritanceDepth_4>, IOUserClient >( DldHookTypeVtable );
+    this->DldAddHookingClassInstance< IOUserClientDldHook<DldInheritanceDepth_5>, IOUserClient >( DldHookTypeVtable );
+    this->DldAddHookingClassInstance< IOUserClientDldHook<DldInheritanceDepth_6>, IOUserClient >( DldHookTypeVtable );
+    this->DldAddHookingClassInstance< IOUserClientDldHook<DldInheritanceDepth_7>, IOUserClient >( DldHookTypeVtable );
+    this->DldAddHookingClassInstance< IOUserClientDldHook<DldInheritanceDepth_8>, IOUserClient >( DldHookTypeVtable );
+    this->DldAddHookingClassInstance< IOUserClientDldHook<DldInheritanceDepth_9>, IOUserClient >( DldHookTypeVtable );
+    this->DldAddHookingClassInstance< IOUserClientDldHook<DldInheritanceDepth_10>, IOUserClient >( DldHookTypeVtable );
+```
+
+the static object of a class is created by a call to fStaticContainerClassInstance
+
+```
+if( !DldHookerCommonClass2<CC,HC>::fStaticContainerClassInstance() ){
+```
+
+this static object is used to hook IOUserClient inherited objects by providing hooking functions registered by init() routine
+
+```
+template<DldInheritanceDepth Depth>
+bool
+IOUserClientDldHook<Depth>::init()
+{
+    // super::init()
+    
+    assert( this->mHookerCommon2 );
+    
+    if( this->mHookerCommon2->init( this ) ){
+        
+        //
+        // add new hooking functions specific for the class
+        //
+        this->mHookerCommon2->fAddHookingFunctionExternal(
+                                                          IOUserClientDldHook<Depth>::kDld_getExternalMethodForIndex_hook,
+                                                          DldConvertFunctionToVtableIndex( (void (OSMetaClassBase::*)(void)) &IOUserClient::getExternalMethodForIndex ),
+                                                          DldHookerCommonClass2<IOUserClientDldHook<Depth>,IOUserClient>::_ptmf2ptf( this, (void (DldHookerBaseInterface::*)(void)) &IOUserClientDldHook<Depth>::getExternalMethodForIndex_hook ) );
+        
+
+        this->mHookerCommon2->fAddHookingFunctionExternal(
+                                                          IOUserClientDldHook<Depth>::kDld_getExternalAsyncMethodForIndex_hook,
+                                                          DldConvertFunctionToVtableIndex( (void (OSMetaClassBase::*)(void)) &IOUserClient::getExternalAsyncMethodForIndex ),
+                                                          DldHookerCommonClass2<IOUserClientDldHook<Depth>,IOUserClient>::_ptmf2ptf( this, (void (DldHookerBaseInterface::*)(void)) &IOUserClientDldHook<Depth>::getExternalAsyncMethodForIndex_hook ) );
+        
+
+        this->mHookerCommon2->fAddHookingFunctionExternal(
+                                                          IOUserClientDldHook<Depth>::kDld_getTargetAndMethodForIndex_hook,
+                                                          DldConvertFunctionToVtableIndex( (void (OSMetaClassBase::*)(void)) &IOUserClient::getTargetAndMethodForIndex ),
+                                                          DldHookerCommonClass2<IOUserClientDldHook<Depth>,IOUserClient>::_ptmf2ptf( this, (void (DldHookerBaseInterface::*)(void)) &IOUserClientDldHook<Depth>::getTargetAndMethodForIndex_hook ) );
+        
+
+.....
+```
+
+The enumerator type defines an index for each hook and is required
+```
+    enum{
+        kDld_getExternalMethodForIndex_hook = 0x0,
+        kDld_getExternalAsyncMethodForIndex_hook,
+        kDld_getTargetAndMethodForIndex_hook,
+        kDld_getAsyncTargetAndMethodForIndex_hook,
+        kDld_getExternalTrapForIndex_hook,
+        kDld_getTargetAndTrapForIndex_hook,
+        kDld_externalMethod_hook,
+        kDld_clientMemoryForType_hook,
+        kDld_registerNotificationPort1_hook,//(mach_port_t port, UInt32 type, io_user_reference_t refCon)
+        kDld_registerNotificationPort2_hook,//(mach_port_t port, UInt32 type, UInt32 refCon )
+        kDld_getNotificationSemaphore_hook,
+        kDld_NumberOfAddedHooks
+    };
+```
+
+Then goes a definition for each hooking function
+```
+    // Old methods for accessing method vector backward compatiblility only
+    virtual IOExternalMethod * getExternalMethodForIndex_hook( UInt32 index );
+    
+    virtual IOExternalAsyncMethod * getExternalAsyncMethodForIndex_hook( UInt32 index );
+    
+    // Methods for accessing method vector.
+    virtual IOExternalMethod * getTargetAndMethodForIndex_hook( IOService ** targetP, UInt32 index );
+    
+    virtual IOExternalAsyncMethod * getAsyncTargetAndMethodForIndex_hook( IOService ** targetP, UInt32 index );
+    
+    // Methods for accessing trap vector - old and new style
+    virtual IOExternalTrap * getExternalTrapForIndex_hook( UInt32 index );
+    
+    virtual IOExternalTrap * getTargetAndTrapForIndex_hook( IOService **targetP, UInt32 index );
+    
+    virtual IOReturn externalMethod_hook( uint32_t selector, IOExternalMethodArguments * arguments,
+                                    IOExternalMethodDispatch * dispatch = 0, OSObject * target = 0, void * reference = 0 );
+    
+    virtual IOReturn registerNotificationPort1_hook(mach_port_t port, UInt32 type, io_user_reference_t refCon);
+    
+    virtual IOReturn registerNotificationPort2_hook(mach_port_t port, UInt32 type, UInt32 refCon );
+    
+    virtual IOReturn clientMemoryForType_hook( UInt32 type,
+                                               IOOptionBits * options,
+                                               IOMemoryDescriptor ** memory );
+    
+    virtual IOReturn getNotificationSemaphore_hook( UInt32 notification_type,
+                                                    semaphore_t * semaphore );
+```
+
+The actual object hooking is performed by an instance of DldHookerCommonClass2 class template
+
+```
+DldHookerCommonClass2<IOUserClientDldHook<Depth>,IOUserClient>*   mHookerCommon2;
+```
+which provides fHookObject function
+
+```
+template <class CC, class HC>
+IOReturn
+DldHookerCommonClass2<CC,HC>::fHookObject( __inout OSObject* object, __in DldHookType type )
+{
+    DldHookerCommonClass2<CC,HC>*  commonHooker2;
+    
+    commonHooker2 = DldHookerCommonClass2<CC,HC>::fCommonHooker2();
+    assert( commonHooker2 );
+    if( NULL == commonHooker2 )
+        return false;
+    
+    return commonHooker2->mHookerCommon.HookObject( object, type );
+}
+```
+
+You need to provide a template class similar for IOUserClientDldHook for each IOKit class you want to hook. For example below is a class declaration for IOUSBMassStorageClass
+
+```
+template<DldInheritanceDepth Depth>
+class IOUSBMassStorageClassDldHook2 : public DldHookerBaseInterface
+{
+
+    /////////////////////////////////////////////
+    //
+    // start of the required declarations
+    //
+    /////////////////////////////////////////////
+public:
+    enum{
+        kDld_SendSCSICommand_hook = 0x0,
+        kDld_NumberOfAddedHooks
+    };
+    
+    friend class DldIOKitHookEngine;
+    friend class DldHookerCommonClass2<IOUSBMassStorageClassDldHook2<Depth>,IOUSBMassStorageClass>;
+    
+    static const char* fGetHookedClassName(){ return "IOUSBMassStorageClass"; };
+    DldDeclareGetClassNameFunction();
+    
+protected:
+    
+    static DldInheritanceDepth fGetInheritanceDepth(){ return Depth; };
+    DldHookerCommonClass2<IOUSBMassStorageClassDldHook2<Depth>,IOUSBMassStorageClass>*   mHookerCommon2;
+    
+protected:
+    static IOUSBMassStorageClassDldHook2<Depth>* newWithDefaultSettings();
+    virtual bool init();
+    virtual void free();
+    
+    /////////////////////////////////////////////
+    //
+    // end of the required declarations
+    //
+    /////////////////////////////////////////////
+    
+protected:
+    
+    //
+    // The SendSCSICommand function will take a SCSITask Object and transport
+	// it across the physical wire(s) to the device
+    //
+	virtual bool SendSCSICommand_hook( SCSITaskIdentifier 		request, 
+                                       SCSIServiceResponse *	serviceResponse,
+                                       SCSITaskStatus	   *	taskStatus );
+    
+};
+```
