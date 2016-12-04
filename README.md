@@ -147,7 +147,7 @@ IOUserClientDldHook<Depth>::init()
 .....
 ```
 
-The enumerator type defines an index for each hook and is required
+The enumerator type defines index for each virtual function hook
 ```
     enum{
         kDld_getExternalMethodForIndex_hook = 0x0,
