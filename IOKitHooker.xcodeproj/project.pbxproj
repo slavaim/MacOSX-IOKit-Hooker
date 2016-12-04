@@ -15,12 +15,6 @@
 		F9C34BB21DF4171600AF247B /* DldHookerCommonClass.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C34BAF1DF4171600AF247B /* DldHookerCommonClass.h */; };
 		F9C34BB51DF4174D00AF247B /* DldCommonHashTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9C34BB31DF4174D00AF247B /* DldCommonHashTable.cpp */; };
 		F9C34BB61DF4174D00AF247B /* DldCommonHashTable.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C34BB41DF4174D00AF247B /* DldCommonHashTable.h */; };
-		F9C34BBB1DF4179800AF247B /* DldIORegistryEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9C34BB71DF4179800AF247B /* DldIORegistryEntry.cpp */; };
-		F9C34BBC1DF4179800AF247B /* DldIORegistryEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C34BB81DF4179800AF247B /* DldIORegistryEntry.h */; };
-		F9C34BC91DF419F300AF247B /* DldSupportingCode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9C34BC61DF419F300AF247B /* DldSupportingCode.cpp */; };
-		F9C34BCA1DF419F300AF247B /* DldSupportingCode.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C34BC71DF419F300AF247B /* DldSupportingCode.h */; };
-		F9C34BCD1DF41A1700AF247B /* DldUndocumentedQuirks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9C34BCB1DF41A1700AF247B /* DldUndocumentedQuirks.cpp */; };
-		F9C34BCE1DF41A1700AF247B /* DldUndocumentedQuirks.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C34BCC1DF41A1700AF247B /* DldUndocumentedQuirks.h */; };
 		F9C34BD11DF41A4E00AF247B /* DldVmPmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9C34BCF1DF41A4E00AF247B /* DldVmPmap.cpp */; };
 		F9C34BD21DF41A4E00AF247B /* DldVmPmap.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C34BD01DF41A4E00AF247B /* DldVmPmap.h */; };
 		F9C34BDD1DF424E900AF247B /* IOUserClientDldHook.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9C34BDC1DF424E900AF247B /* IOUserClientDldHook.cpp */; };
@@ -46,12 +40,6 @@
 		F9C34BAF1DF4171600AF247B /* DldHookerCommonClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DldHookerCommonClass.h; sourceTree = "<group>"; };
 		F9C34BB31DF4174D00AF247B /* DldCommonHashTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DldCommonHashTable.cpp; sourceTree = "<group>"; };
 		F9C34BB41DF4174D00AF247B /* DldCommonHashTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DldCommonHashTable.h; sourceTree = "<group>"; };
-		F9C34BB71DF4179800AF247B /* DldIORegistryEntry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DldIORegistryEntry.cpp; sourceTree = "<group>"; };
-		F9C34BB81DF4179800AF247B /* DldIORegistryEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DldIORegistryEntry.h; sourceTree = "<group>"; };
-		F9C34BC61DF419F300AF247B /* DldSupportingCode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DldSupportingCode.cpp; sourceTree = "<group>"; };
-		F9C34BC71DF419F300AF247B /* DldSupportingCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DldSupportingCode.h; sourceTree = "<group>"; };
-		F9C34BCB1DF41A1700AF247B /* DldUndocumentedQuirks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DldUndocumentedQuirks.cpp; sourceTree = "<group>"; };
-		F9C34BCC1DF41A1700AF247B /* DldUndocumentedQuirks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DldUndocumentedQuirks.h; sourceTree = "<group>"; };
 		F9C34BCF1DF41A4E00AF247B /* DldVmPmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DldVmPmap.cpp; sourceTree = "<group>"; };
 		F9C34BD01DF41A4E00AF247B /* DldVmPmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DldVmPmap.h; sourceTree = "<group>"; };
 		F9C34BDC1DF424E900AF247B /* IOUserClientDldHook.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IOUserClientDldHook.cpp; sourceTree = "<group>"; };
@@ -133,12 +121,6 @@
 			children = (
 				F9C34BCF1DF41A4E00AF247B /* DldVmPmap.cpp */,
 				F9C34BD01DF41A4E00AF247B /* DldVmPmap.h */,
-				F9C34BCB1DF41A1700AF247B /* DldUndocumentedQuirks.cpp */,
-				F9C34BCC1DF41A1700AF247B /* DldUndocumentedQuirks.h */,
-				F9C34BC61DF419F300AF247B /* DldSupportingCode.cpp */,
-				F9C34BC71DF419F300AF247B /* DldSupportingCode.h */,
-				F9C34BB71DF4179800AF247B /* DldIORegistryEntry.cpp */,
-				F9C34BB81DF4179800AF247B /* DldIORegistryEntry.h */,
 				F9C34BB31DF4174D00AF247B /* DldCommonHashTable.cpp */,
 				F9C34BB41DF4174D00AF247B /* DldCommonHashTable.h */,
 				F9C34BAD1DF4171600AF247B /* DldCommon.h */,
@@ -180,10 +162,7 @@
 				F9C34BB21DF4171600AF247B /* DldHookerCommonClass.h in Headers */,
 				F9C34BE31DF4266300AF247B /* DldIOKitHookEngine.h in Headers */,
 				F9C34BE71DF428E500AF247B /* DldIOKitHookDictionaryEntry.h in Headers */,
-				F9C34BCA1DF419F300AF247B /* DldSupportingCode.h in Headers */,
-				F9C34BCE1DF41A1700AF247B /* DldUndocumentedQuirks.h in Headers */,
 				F9C34BB61DF4174D00AF247B /* DldCommonHashTable.h in Headers */,
-				F9C34BBC1DF4179800AF247B /* DldIORegistryEntry.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,17 +240,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9C34BC91DF419F300AF247B /* DldSupportingCode.cpp in Sources */,
 				F9C34BD11DF41A4E00AF247B /* DldVmPmap.cpp in Sources */,
 				F9C34BB51DF4174D00AF247B /* DldCommonHashTable.cpp in Sources */,
 				F9C34BDD1DF424E900AF247B /* IOUserClientDldHook.cpp in Sources */,
 				F9C34BE21DF4266300AF247B /* DldIOKitHookEngine.cpp in Sources */,
 				F9C34BAB1DF4169400AF247B /* DldHookerCommonClass2.cpp in Sources */,
-				F9C34BBB1DF4179800AF247B /* DldIORegistryEntry.cpp in Sources */,
 				F9C34BE61DF428E500AF247B /* DldIOKitHookDictionaryEntry.cpp in Sources */,
 				F9C34BB11DF4171600AF247B /* DldHookerCommonClass.cpp in Sources */,
 				F9C34BEA1DF42DFA00AF247B /* HookExample.cpp in Sources */,
-				F9C34BCD1DF41A1700AF247B /* DldUndocumentedQuirks.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +384,7 @@
 				F9C34BA71DF4149700AF247B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

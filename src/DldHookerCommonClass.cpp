@@ -4,7 +4,6 @@
 #include <AvailabilityMacros.h>
 #include "DldHookerCommonClass.h"
 #include "DldVmPmap.h"
-#include "DldUndocumentedQuirks.h"
 #include <sys/proc.h>
 
 //--------------------------------------------------------------------
