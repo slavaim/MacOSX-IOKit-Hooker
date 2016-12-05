@@ -59,6 +59,77 @@ IOService::doServiceMatch at IOService.cpp:3088
 _IOConfigThread::main at IOService.cpp:3350  
 ```
 
+##Internals
+
+Hooking is performed by a call to
+
+```
+IOReturn
+DldHookerCommonClass::HookObject(
+    __inout OSObject* object,
+    __in DldHookType type
+    )
+```
+
+there are two types of hooking 
+
+```
+typedef enum _DldHookType{
+    
+    DldHookTypeUnknown = 0x0,
+    
+    //
+    // the poiter to a vtable for an object is replaced thus
+    // the hook affects only the object,
+    // the key is of OSObject* type
+    //
+    DldHookTypeObject = 0x1,
+    
+    //
+    // the function adresses are replaced in the original vtable thus
+    // affecting all objects of the same type,
+    // the keys are of the DldHookTypeVtableObjKey & DldHookTypeVtableKey types
+    //
+    DldHookTypeVtable = 0x2,
+    
+    //
+    // a terminating value, not an actual type
+    //
+    DldHookTypeMaximum
+    
+} DldHookType;
+```
+
+The both hooking types result in calling DldHookVtableFunctions that replaces function pointers in Vtable
+
+```
+void
+DldHookerCommonClass::DldHookVtableFunctions(
+    __in    OSObject*                     object,
+    __inout DldHookedFunctionInfo*        HookedFunctonsInfo,
+    __inout OSMetaClassBase::_ptf_t*      VtableToHook,
+    __inout OSMetaClassBase::_ptf_t*      NewVtable
+)
+```
+
+In case of DldHookTypeObject type a new Vtable is allocated and replaces an original object's Vtable after a call to DldHookVtableFunctions. 
+
+```
+	*ObjU.vtablep = this->NewVtable;
+```
+
+For DldHookTypeVtable type VtableToHook is equal to NewVtable so an original Vtable is being patched with hooking functions.
+
+The Vtable patching is performed by a call to
+
+```
+        Bytes = DldWriteWiredSrcToWiredDst( (vm_offset_t)&PtrHookInfo->HookingFunction,
+                                            (vm_offset_t)&NewVtable[ PtrHookInfo->VtableIndex - 1],
+                                            sizeof( PtrHookInfo->HookingFunction ) );
+```
+
+DldWriteWiredSrcToWiredDst is used to map a read only page(PTE is marked as read only) to a local CPU mapping as read/write PTE as for some objects a Vtable might be allocated in read only memory.
+
 ##Usage
 
 The project contains an example of hooker usage for IOUserClient objects.
