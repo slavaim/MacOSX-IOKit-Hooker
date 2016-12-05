@@ -71,7 +71,7 @@ DldHookerCommonClass::HookObject(
     )
 ```
 
-there are two types of hooking 
+there are two hooking types 
 
 ```
 typedef enum _DldHookType{
